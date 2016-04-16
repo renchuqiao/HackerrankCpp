@@ -1,5 +1,6 @@
 //
 // Created by Rachel Ren on 4/16/16.
+// This file is to solve Hackerrank Problem Interval Selection
 //
 #include <algorithm>
 #include <cstdio>

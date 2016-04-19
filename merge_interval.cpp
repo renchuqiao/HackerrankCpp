@@ -26,15 +26,21 @@ vector<Interval> merge(vector<Interval>& intervals) {
         return intervals;
     }
     sort(intervals.begin(), intervals.end(), less_than_key());
-    vector<Interval> result(intervals.size());
+    vector<Interval> result;
     Interval common = intervals[0];
-    int count = 0;
     for (int i = 1; i < intervals.size(); i++){
         if (intervals[i].start > common.end){
-            result[count] = common;
+            result.push_back(common);
             common = intervals[i];
-            count++;
+        }else{
+            if (common.end > intervals[i].end){
+                continue;
+            }else{
+                common = Interval(common.start, intervals[i].end);
+
+            }
         }
     }
+    result.push_back(common);
     return result;
 }
